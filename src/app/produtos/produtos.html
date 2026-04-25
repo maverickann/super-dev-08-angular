@@ -1,0 +1,41 @@
+<div>
+    <h1>Cadastrar Produtos</h1>
+    <label for="nome">nome do produto</label>
+    <input type="text" id="nome" [(ngModel)]="produto" (keydown.enter)="salvar()" placeholder="digite o nome">
+    <button (click)="salvar()">Salvar</button>
+    <!-- <button (click)="preencherCampoParaEditar()">editar</button> -->
+</div>
+<div>
+    <h1>Listar Produtos  {{indice}}/20</h1>
+        @if (produtos.length===0) {
+            <h1>Nennhum cliente cadastrado</h1> }@else {
+                <ul>@for (produto of produtos;let i =$index; track produto ){
+                    <li> 
+                        <div>
+                           
+
+                        </div>
+                        <div>
+                            <span class="text-gray-800 font-medium text-lg">{{produto  }} - {{validade[i]}}</span><button 
+                            (click)="preencherCampoParaEditar(produto,validade[i])" 
+                            class="text-yellow-600 hover:text-yellow-700 bg-yellow-50 hover:bg-yellow-100 p-2 rounded-lg transition"
+                            title="Editar">
+                            <i class="fa-solid fa-pencil"></i>
+                          </button>
+                          <button 
+                          (click)="apagar(produto)" 
+                        
+                          class="text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 p-2 rounded-lg transition"
+                          title="Excluir"> 
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                        </div>
+                    </li>
+                 
+                    }
+        
+            </ul>
+
+            }
+    
+</div>
